@@ -1,0 +1,11 @@
+.osnov button:hover{
+    cursor: pointer;
+    transform: Translate(0,-3px);
+    box-shadow: 0 20px 40px 0 rgba(11, 99, 246, 1);
+}
+.osnov button {
+    color: rgba(11, 99, 246, 1);
+    transition: 0,5 с;
+    height: 50px;
+    width: 10%;
+  }
