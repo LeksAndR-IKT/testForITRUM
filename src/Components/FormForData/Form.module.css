@@ -26,4 +26,8 @@ input[type="number"]::-webkit-inner-spin-button {
   font-size: 10px;
   display: none;
 }
+.forma button{
+  margin: 10px;
+  padding: 10px;
+}
 

@@ -5,21 +5,13 @@
 * 23.05.2024 Ферхов А.A. - создание файла               *
 *                                                       *
 *********************************************************/
-import React, { useRef, useState } from 'react';
+import React from 'react';
 import { useForm } from 'react-hook-form';
 import s from './Form.module.css'
 import Button from '../Button/Button';
 
 
 let Form = () => {
-    const [numberTel, setNumberTel] = useState('')
-    const refNumberTel = useRef()
-
-    const isNumberTel = () => {         //блокирует ввод символов, которые не относятся к цифрам
-        if (refNumberTel.current) {
-            setNumberTel(refNumberTel.current.value)
-        }
-    }
 
     const { register, handleSubmit } = useForm({
         defaultValues: {}
@@ -29,27 +21,28 @@ let Form = () => {
         console.log(data)
     }
 
-    const isCorrectness = (data) => {       //Функция проверяет регистр первого символа
-        return true
+    const Errors = (data) => {
+        alert(`Error: `)
     }
 
-    const isNumber = (data) => {            //Функция проверяет вводятся ли цифры
-        return true
+    const isCorrectness = (data) => {       //Функция проверяет регистр первого символа
+        return /^[A-Z]|[А-Я]/.test(data)
     }
 
     return <div className={s.osnov}>
-        <form method="post" className={s.forma} onSubmit={handleSubmit(Submit, ()=>{alert('error')})}>
+        <form method="post" className={s.forma} onSubmit={handleSubmit(Submit, Errors)}>
 
             <input type='text' placeholder="введите вашу Фамилию" {...register('lastName', { required: true, validate: isCorrectness })} />
-
+            <div className={s.error}>Неверная форма данных</div>
             <input type='text' placeholder="введите вашу Имя" {...register('firstName', { required: true, validate: isCorrectness })} />
-
+            <div className={s.error}>Неверная форма данных</div>
             <input type='text' placeholder="введите ваше Отчество" {...register('Otchestvo', { required: true, validate: isCorrectness })} />
+            <div className={s.error}>Неверная форма данных</div>
 
-
-            <input type='text' placeholder="введите контактный номер телефона" maxLength="11"
-                {...register('numTel', { required: true, validate: isNumber })} value={numberTel} onChange={isNumberTel} ref={refNumberTel} />
-
+            <select>
+                <option>Google</option>
+                <option>Яндекс</option>
+            </select>
             <Button />
 
         </form>
