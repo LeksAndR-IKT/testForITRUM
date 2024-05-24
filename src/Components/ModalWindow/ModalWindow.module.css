@@ -9,14 +9,17 @@
     align-items: center;
     justify-content: center;
     transform: scale(0);
+    
 }
 .active {
     transform: scale(1);
+    transition: 0.5s;
 }
 .wind{
     padding: 20px;
     margin: 20px;
     border-radius: 12px;
     background-color: rgb(3, 27, 87);
-    color: white
+    color: white;
+    opacity: 0.9;
 }

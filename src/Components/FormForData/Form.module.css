@@ -26,8 +26,40 @@ input[type="number"]::-webkit-inner-spin-button {
   font-size: 10px;
   display: none;
 }
+.errorActiv{
+  color: red;
+  font-size: 10px;
+  display: block;
+}
 .forma button{
   margin: 10px;
   padding: 10px;
 }
 
+.selec::after {
+  content: "";
+  position: absolute;
+  width: 14px;
+  top: calc(50% - 4px);
+  height: 9px;
+  right: 15px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100%;
+}
+
+.selec {
+  position: relative;
+  background-color: rgb(117, 11, 231);
+  border-radius: 6px;
+  margin: 5px;
+  padding: 5px;
+}
+.selec label{
+  margin: 5px;
+  padding: 5px;
+}
+.selec select {
+  background-color: rgb(8, 7, 41);
+  color: white;
+}
