@@ -3,7 +3,7 @@
 * Дата создания: 23.05.2024                             *
 * Изменения:                                            *
 * 23.05.2024 Ферхов А.A. - создание файла               *
-*                                                       *
+* 24.05.2024 Ферхов А.A. - добавление функции           *
 *********************************************************/
 import React from 'react';
 import { useForm } from 'react-hook-form';
@@ -11,7 +11,7 @@ import s from './Form.module.css'
 import Button from '../Button/Button';
 
 
-let Form = () => {
+let Form = ({setActive}) => {
 
     const { register, handleSubmit } = useForm({
         defaultValues: {}
@@ -19,9 +19,10 @@ let Form = () => {
 
     const Submit = (data) => {
         console.log(data)
+        setActive(true) //Скрывает модальное окно
     }
 
-    const Errors = (data) => {
+    const Errors = () => {
         alert(`Error: `)
     }
 
@@ -43,7 +44,7 @@ let Form = () => {
                 <option>Google</option>
                 <option>Яндекс</option>
             </select>
-            <Button />
+            <Button/>
 
         </form>
     </div>

@@ -1,0 +1,22 @@
+.disactive{
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0, 4);
+    position: fixed;
+    top: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: scale(0);
+}
+.active {
+    transform: scale(1);
+}
+.wind{
+    padding: 20px;
+    margin: 20px;
+    border-radius: 12px;
+    background-color: rgb(3, 27, 87);
+    color: white
+}

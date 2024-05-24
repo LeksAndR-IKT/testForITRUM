@@ -1,7 +1,3 @@
-.App {
-  text-align: center;
-}
-
 .btn:hover{
     cursor: pointer;
     transform: Translate(0,-3px);
@@ -31,7 +27,7 @@
       touch-action: manipulation;
     
   }
-  .btn .but-form {
+  .btn a {
       display: block;	
       box-sizing: border-box;
       padding: 0 25px;    
@@ -49,11 +45,10 @@
   .btn:focus-visible {
       box-shadow: 0 0 0 3px lightskyblue;
   }
-  .btn:hover .but-form {
-      background-color: #fba768;
-	  cursor: pointer;
+  .btn:hover a {
+      background-color: #fba768
   }
-  .btn:active .but-form {
+  .btn:active a {
       background-color: #c17237 !important;
   }
   .btn:disabled {
