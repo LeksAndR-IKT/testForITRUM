@@ -9,33 +9,41 @@
 let initialState = {
     dataIsForm: {
         nameBrend: null, //имя бренда
-        searchSystem: null, // выбранная система
-        search: 10         //Глубина поиска
+        searchSystem: null, // выбранная система 
+        search: 10,         //Глубина поиска
+        task_id: null
     }
 }
 const collictionData = "collictionData"
 
 let FormReducer = (state = initialState, action) => {
-    switch(action.type){
-        case(collictionData):   //запись полученных данных в локальный стейт
-        {
-            return {...state, dataIsForm: {...action.data} }
-        }
-        default: 
-        {
-            return state
-        }
+    switch (action.type) {
+        case (collictionData):   //запись полученных данных в локальный стейт
+            {
+                return {
+                    ...state, dataIsForm:
+                    {
+                        nameBrend: action.data.nameBrend, //имя бренда
+                        searchSystem: action.data.searchSystem, // выбранная система 
+                        search: action.data.search         //Глубина поиска
+                    }
+                }
+            }
+        default:
+            {
+                return state
+            }
     }
 }
 
-export let collictionDataAC = (data) => ({type: collictionData, data}) //Action Creater запись данных в локальный стейт
+export let collictionDataAC = (data) => ({ type: collictionData, data }) //Action Creater запись данных в локальный стейт
 
 
-export let collictionDataTC = (dispatch) => {                           //Thunk Creater
-    return async(data) => {
+export let collictionDataTC = (data) => {                           //Thunk Creater
+    return async (dispatch) => {
         dispatch(collictionDataAC(data))//запись полученных данных в локальный стейт
         // Будет происходить запрос на сервер
     }
-} 
+}
 
 export default FormReducer;

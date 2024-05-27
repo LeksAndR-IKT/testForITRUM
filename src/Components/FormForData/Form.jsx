@@ -41,7 +41,7 @@ let Form = ({ setActive, collictionData }) => {
     }
 
     const isCorrectness = (data) => {
-        return /[A-z]|[А-я]/.test(data)     //Функция проверяет регистр первого символа
+        return /^[A-zА-я0-9]+$/.test(data)    //Функция проверяет регистр первого символа
     }
 
 
@@ -50,7 +50,7 @@ let Form = ({ setActive, collictionData }) => {
 
             <input type='text' ref={refLasttName} placeholder="Название бренда" {...register('nameBrend', { required: true, validate: isCorrectness })} />
 
-            <div className={statusLasttName ? s.errorActiv : s.error}>Неверная форма данных</div>
+            <div className={statusLasttName ? s.errorActiv : s.error}>Неверная форма данных. Поле ввода не может содержать символы <b>! @ # $ % ^ & * ( ) _</b></div>
             <div className={s.selec}>
                 <label for="searchSystem">Ваша поисковая система</label><br />
                 <select id="searchSystem" required {...register('searchSysytem', {required: true})}>
